@@ -11,6 +11,13 @@ module.exports = (env, argv) => {
     ],
     devServer: {
         port: 3000, //端口号
+        proxy: {
+          '/api': {
+            target: 'http://www.baidu.com/',
+            pathRewrite: {'^/api' : '/campaign_huggies/t3store_freeuse/admin'},
+            changeOrigin: true
+          }
+        }
     },
     module: {
         rules: [
